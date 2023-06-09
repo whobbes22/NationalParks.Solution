@@ -7,11 +7,11 @@ namespace ParksAPI.Controllers
 {
   [Route("api/[controller]")]
   [ApiController]
-  public class ReviewsController : ControllerBase
+  public class ParksController : ControllerBase
   {
     private readonly NationalParkContext _db;
 
-    public ReviewsController(NationalParkContext db)
+    public ParksController(NationalParkContext db)
     {
       _db = db;
     }
