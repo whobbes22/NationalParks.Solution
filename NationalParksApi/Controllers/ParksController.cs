@@ -77,9 +77,6 @@ namespace ParksAPI.Controllers
     [HttpPut("{id}")]
     public async Task<IActionResult> Put(int id, Park park, string UserName)
     {
-
-     
-       
       if (id != park.ParkId)
       {
         return BadRequest();
@@ -111,5 +108,22 @@ namespace ParksAPI.Controllers
       return _db.Parks.Any(e => e.ParkId == id);
     }
 
+
+
+    // DELETE: api/Parks/5
+    [HttpDelete("{id}")]
+    public async Task<IActionResult> DeletePark(int id)
+    {
+      Park park = await _db.Parks.FindAsync(id);
+      if (park == null)
+      {
+        return NotFound();
+      }
+
+      _db.Parks.Remove(park);
+      await _db.SaveChangesAsync();
+
+      return NoContent();
+    }
   }
 }
