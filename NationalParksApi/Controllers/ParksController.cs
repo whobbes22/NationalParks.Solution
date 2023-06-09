@@ -125,5 +125,14 @@ namespace ParksAPI.Controllers
 
       return NoContent();
     }
+
+     [HttpGet("random")]
+    public async Task<ActionResult<Park>> GetRandomPark()
+    {
+      Random rand = new Random();
+
+      List<Park> allParks = _db.Parks.ToList();
+      return allParks.ElementAt(rand.Next(allParks.Count));
+    }
   }
 }
