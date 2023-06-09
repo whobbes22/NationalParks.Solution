@@ -71,9 +71,9 @@ public class Park
         return destination;
     }
 
-    public static List<Review> GetDestination(string parkName, string parkType, string parkLocation)
+    public static List<Park> SearchParks(string parkName, string parkType, string parkLocation)
     {
-        var apiCallTask = ApiHelper.GetDestination(parkName, parkType,parkLocation);
+        var apiCallTask = ApiHelper.SearchParks(parkName, parkType,parkLocation);
         var result = apiCallTask.Result;
 
         JArray jsonResponse = JsonConvert.DeserializeObject<JArray>(result);
