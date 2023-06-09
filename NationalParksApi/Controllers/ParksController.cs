@@ -49,9 +49,9 @@ namespace ParksAPI.Controllers
     }
 
 
-    // GET: api/Reviews/5
+    // GET: api/Parks/5
     [HttpGet("{id}")]
-    public async Task<ActionResult<Park>> GetReview(int id)
+    public async Task<ActionResult<Park>> GetPark(int id)
     {
       Park park = await _db.Parks.FindAsync(id);
 
@@ -61,6 +61,16 @@ namespace ParksAPI.Controllers
       }
 
       return park;
+    }
+
+
+    // POST api/parks
+    [HttpPost]
+    public async Task<ActionResult<Park>> Post(Park park)
+    {
+      _db.Parks.Add(park);
+      await _db.SaveChangesAsync();
+      return CreatedAtAction(nameof(GetReview), new { id = park.ParkId }, park);
     }
 
 
