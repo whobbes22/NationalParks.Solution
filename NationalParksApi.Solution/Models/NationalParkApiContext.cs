@@ -14,7 +14,7 @@ namespace ParksAPI.Models
     {
       builder.Entity<Park>()
         .HasData(
-          new Park { ParkId = 1}
+          new Park { ParkId = 1, ParkDescription="a good place to visit"}
         );
     }
   }
