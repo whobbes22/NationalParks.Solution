@@ -1,0 +1,26 @@
+@{
+    ViewData["Title"] = "Parks";
+}
+@using ParkClient.Models;
+<h1>All Parks</h1>
+<h3>Actions:</h3>
+<p>@Html.ActionLink("Add a new park to the database", "Create")</p>
+
+<h3>Parks:</h3>
+
+@using (Html.BeginForm("SearchParks","Parks",FormMethod.Post))
+{
+  <p>Name: <input type="text" name="parkName" /></p>
+  <p>type: <input type="text" name="parkType" /></p>
+  <p>Location: <input type="text" name="parkLocation" /></p>
+  <br>
+  <input type="submit" value="Search" class="btn btn-primary"/>
+}
+
+<br>
+<ol>
+ @foreach (Park park in Model)
+{
+  <li><strong>@park.ParkName | Type: @park.ParkType </strong>| <a href="/Parks/Details/@(park.ParkId)">View Details</a></li>
+}
+</ol> 

@@ -26,7 +26,7 @@ public class Park
         string result = apiCallTask.Result;
 
         JArray jsonResponse = JsonConvert.DeserializeObject<JArray>(result);
-        List<Park> parkList = JsonConvert.DeserializeObject<List<Review>>(jsonResponse.ToString());
+        List<Park> parkList = JsonConvert.DeserializeObject<List<Park>>(jsonResponse.ToString());
 
         return parkList;
     }
@@ -37,7 +37,7 @@ public class Park
       string result = apiCallTask.Result;
 
       JObject jsonResponse = JsonConvert.DeserializeObject<JObject>(result);
-      Park park = JsonConvert.DeserializeObject<Review>(jsonResponse.ToString());
+      Park park = JsonConvert.DeserializeObject<Park>(jsonResponse.ToString());
 
       return park;
     }
@@ -51,7 +51,7 @@ public class Park
     public static void Put(Park park)
     {
       string jsonPark = JsonConvert.SerializeObject(park);
-      ApiHelper.Put(review.ReviewId, jsonPark);
+      ApiHelper.Put(park.ParkId, jsonPark);
     }
     public static void Delete(int id)
     {
@@ -59,17 +59,17 @@ public class Park
     }
 
 // needs work
-    public static string GetRandom()
-    {
-        var apiCallTask = ApiHelper.GetRandom();
-        var result = apiCallTask.Result;
+    // public static string GetRandom()
+    // {
+    //     var apiCallTask = ApiHelper.GetRandom();
+    //     var result = apiCallTask.Result;
 
-        JArray jsonResponse = JsonConvert.DeserializeObject<JArray>(result);
-        List<Review> reviewList = JsonConvert.DeserializeObject<List<Review>>(jsonResponse.ToString());
-        string destination = reviewList[0].ReviewDestination;
+    //     JArray jsonResponse = JsonConvert.DeserializeObject<JArray>(result);
+    //     List<Park> ParkList = JsonConvert.DeserializeObject<List<Review>>(jsonResponse.ToString());
+    //     string destination = ParkList[0].ReviewDestination;
 
-        return destination;
-    }
+    //     return destination;
+    // }
 
     public static List<Park> SearchParks(string parkName, string parkType, string parkLocation)
     {

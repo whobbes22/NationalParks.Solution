@@ -46,7 +46,7 @@ namespace ParkClient.Models
       RestClient client = new RestClient("http://localhost:5000/");
       RestRequest request = new RestRequest($"api/Parks", Method.Post);
       request.AddHeader("Content-Type", "application/json");
-      request.AddJsonBody(newReview);
+      request.AddJsonBody(newPark);
       await client.PostAsync(request);
     }
 
