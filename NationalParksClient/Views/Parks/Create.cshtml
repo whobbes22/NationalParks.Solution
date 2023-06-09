@@ -1,0 +1,27 @@
+@{
+  ViewData["Title"] = "Create Park";
+}
+
+@model ParkClient.Models.Park
+
+<h4>Add a new Park</h4>
+
+@using (Html.BeginForm())
+{
+  <p>Name: @Html.TextBoxFor(model => model.ParkName)</p>
+  <br>
+  <p>Type: @Html.TextBoxFor(model => model.ParkType)</p>
+  <br>
+  <p>Location: @Html.TextBoxFor(model => model.ParkLocation)</p>
+  <br>
+  <p>Size: @Html.TextBoxFor(model => model.ParkSize)</p>
+  <br>
+  <p>Short Description: @Html.TextBoxFor(model => model.ParkDescription)</p>
+  <br>
+  
+  <br>
+  <input type="submit" value="Add new Park" class="btn btn-primary"/>
+}
+
+<br>
+<p>@Html.ActionLink("Back to all Parks", "Index")</p>
