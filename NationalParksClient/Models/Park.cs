@@ -58,18 +58,18 @@ public class Park
       ApiHelper.Delete(id);
     }
 
-// needs work
-    // public static string GetRandom()
-    // {
-    //     var apiCallTask = ApiHelper.GetRandom();
-    //     var result = apiCallTask.Result;
 
-    //     JArray jsonResponse = JsonConvert.DeserializeObject<JArray>(result);
-    //     List<Park> ParkList = JsonConvert.DeserializeObject<List<Review>>(jsonResponse.ToString());
-    //     string destination = ParkList[0].ReviewDestination;
+    public static List<Park> GetRandom()
+    {
+        var apiCallTask = ApiHelper.GetRandom();
+        var result = apiCallTask.Result;
 
-    //     return destination;
-    // }
+        JArray jsonResponse = JsonConvert.DeserializeObject<JArray>(result);
+        List<Park> ParkList = JsonConvert.DeserializeObject<List<Park>>(jsonResponse.ToString());
+        //string destination = ParkList[0].ReviewDestination;
+
+        return ParkList;
+    }
 
     public static List<Park> SearchParks(string parkName, string parkType, string parkLocation)
     {

@@ -29,10 +29,6 @@ namespace ParkClient.Models
       return response.Content;
     }
 
-//https://localhost:5001/api/Reviews?reviewDestination=space&reviewCountry=usa
-
-
-
     public static async Task<string> GetRandom()
     {
       RestClient client = new RestClient("http://localhost:5000/");

@@ -86,4 +86,21 @@ public class ParksController : Controller
     
     return View(parks);
   }
+
+  public ActionResult Random()
+  {
+    return View();
+  }
+
+  [HttpPost, ActionName("Random")]
+  public IActionResult ReturnRandom()
+  {
+    List<Park> randomPark = Park.GetRandom();
+    return RedirectToAction("Random", randomPark);
+  }
+
+
+
 }
+
+
