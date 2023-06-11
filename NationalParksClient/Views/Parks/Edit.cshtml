@@ -1,0 +1,28 @@
+@{
+  ViewData["Title"] = "Create Review";
+}
+
+  @model ParkClient.Models.Park  
+
+<h4>Edit @Model.ParkName?</h4>
+
+@using (Html.BeginForm())
+{
+  @Html.HiddenFor(model => model.ParkId)
+  <p>Name: @Html.EditorFor(model => model.ParkName)</p>
+  <br>
+  <p>Type: @Html.EditorFor(model => model.ParkType)</p>
+  <br>
+  <p>Location: @Html.EditorFor(model => model.ParkLocation)</p>
+  <br>
+  <p>Size: @Html.EditorFor(model => model.ParkSize)</p>
+  <br>
+  <p>Short Description: @Html.EditorFor(model => model.ParkDescription)</p>
+  <br>
+  
+  <br>
+  <input type="submit" value="Edit Review" class="btn btn-primary"/>
+}
+
+<br>
+<p>@Html.ActionLink("Back to details", "Details", new {id = @Model.ParkId})</p>
