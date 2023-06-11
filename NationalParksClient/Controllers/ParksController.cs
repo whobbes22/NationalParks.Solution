@@ -8,13 +8,16 @@ namespace ParkClient.Controllers;
 public class ParksController : Controller
 {
 
-  public IActionResult Index()
+ #nullable enable
+  public IActionResult Index(int? pageNumber)
   {
     List<Park> parks = Park.GetParks();
-
-    //return View(parks);
-    return View(parks);
+    // IQueryable<Review> reviewsQueryable = reviews.AsQueryable();
+    //ViewBag.ReviewPopular = Review.GetPopular(); 
+    int pageSize = 3;
+    return View(PaginatedList<Park>.Create(parks, pageNumber ?? 1, pageSize ));
   }
+  #nullable disable
   
 
   // [HttpPost, ActionName("Index")]
