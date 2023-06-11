@@ -12,6 +12,7 @@ public class ParksController : Controller
   {
     List<Park> parks = Park.GetParks();
 
+    //return View(parks);
     return View(parks);
   }
   
