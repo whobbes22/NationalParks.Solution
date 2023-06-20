@@ -137,6 +137,9 @@ When making a PUT request to `http://localhost:5000/api/animals/{id}`, you need 
   }
 ```
 
+#### Further Exploration: Pagination
+_The client side version of this project features pagination - with 3 per a page._
+
 ## License
 MIT License
 
